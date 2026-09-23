@@ -1,6 +1,6 @@
 # Bayesian Classifier Lab
 
-Conda-ready research framework for the five classifier families used in the MSc thesis:
+Conda-ready research framework for the five classifier families:
 
 1. Random Forest
 2. RBF Support Vector Machine
