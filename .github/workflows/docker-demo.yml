@@ -1,0 +1,42 @@
+name: Docker Demo
+
+on:
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  docker-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Show Docker environment
+        run: |
+          docker --version
+          docker info --format '{{json .ServerVersion}}'
+
+      - name: Build image
+        run: docker build -t bayesian-classifier-lab:ci .
+
+      - name: Show Python scientific environment
+        run: |
+          docker run --rm bayesian-classifier-lab:ci python -c "import sys,numpy,pandas,scipy,sklearn,matplotlib,yaml; print('Python',sys.version); print('NumPy',numpy.__version__); print('pandas',pandas.__version__); print('SciPy',scipy.__version__); print('scikit-learn',sklearn.__version__); print('Matplotlib',matplotlib.__version__); print('PyYAML',yaml.__version__)"
+
+      - name: Run full demonstration
+        run: |
+          mkdir -p docker-results
+          docker run --rm -v "$PWD/docker-results:/app/results" bayesian-classifier-lab:ci
+
+      - name: Print performance summary
+        run: |
+          echo "===== PERFORMANCE SUMMARY ====="
+          cat docker-results/performance_summary.csv
+          echo "===== BAYESIAN ACCURACY COMPARISONS ====="
+          cat docker-results/bayesian_accuracy.csv
+
+      - name: Upload demonstration results
+        uses: actions/upload-artifact@v4
+        with:
+          name: bayesian-classifier-docker-results
+          path: docker-results/

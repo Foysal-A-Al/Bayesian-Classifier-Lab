@@ -1,0 +1,8 @@
+services:
+  bayesclf:
+    build:
+      context: .
+    image: bayesian-classifier-lab:latest
+    volumes:
+      - ./results:/app/results
+    command: ["bayesclf", "--config", "config.example.yml"]

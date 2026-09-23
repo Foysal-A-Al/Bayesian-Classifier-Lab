@@ -1,0 +1,15 @@
+data:
+  path: data/example_dataset.csv
+  target: target
+  dataset_name: example
+evaluation:
+  n_splits: 10
+  n_repeats: 10
+  random_state: 42
+  metric: accuracy
+bayesian:
+  rope: 0.01
+  decision_threshold: 0.95
+  credible_mass: 0.95
+output:
+  directory: results
