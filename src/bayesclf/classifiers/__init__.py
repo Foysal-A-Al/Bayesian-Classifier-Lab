@@ -1,8 +1,9 @@
+from .bernoulli_nb import build as bernoulli_nb
+from .decision_tree import build as decision_tree
+from .gaussian_nb import build as gaussian_nb
 from .random_forest import build as random_forest
 from .svm import build as svm
-from .decision_tree import build as decision_tree
-from .bernoulli_nb import build as bernoulli_nb
-from .gaussian_nb import build as gaussian_nb
+
 
 def get_models(random_state: int = 42):
     return {

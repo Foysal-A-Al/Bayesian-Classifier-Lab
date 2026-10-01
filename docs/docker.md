@@ -8,6 +8,14 @@ docker build -t bayesian-classifier-lab .
 
 ## Run the included demonstration
 
+For the quick 3-fold × 2-repeat demo, run:
+
+```bash
+docker run --rm -v "${PWD}/results:/app/results" bayesian-classifier-lab bayesclf --config config.demo.yml
+```
+
+The default command below runs the longer 10-fold × 10-repeat experiment:
+
 ```bash
 docker run --rm \
   -v "${PWD}/results:/app/results" \

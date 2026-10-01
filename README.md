@@ -24,7 +24,7 @@ python scripts/generate_example_data.py
 bayesclf --config config.demo.yml
 ```
 
-The demo uses **3 folds × 2 repeats**: 30 model fits and 10 pairwise comparisons. Runtime depends on your hardware. Outputs go to `results/demo/`. Run from the repository root because configuration paths are relative to your working directory.
+The demo uses **3 folds × 2 repeats**: 30 model fits and 10 pairwise comparisons. Runtime depends on your hardware. Outputs go to `results/demo/`. Dataset and output paths resolve relative to the configuration file; an absolute `--config` path works from another directory. Run the setup commands from the repository root.
 
 Prefer Conda?
 
@@ -55,7 +55,7 @@ Copy `config.demo.yml`, set `data.path`, `data.target`, and `data.dataset_name`,
 
 Supported metrics: `accuracy`, `balanced_accuracy`, `precision_macro`, `recall_macro`, `f1_macro`, `roc_auc`, `log_loss`, `train_seconds`, and `predict_seconds`. Accuracy/F1/AUC-style metrics are higher-is-better; log loss and timings are lower-is-better. Runtime comparisons also depend on hardware and system load.
 
-The loader rejects missing values and nonnumeric predictors. Imputation, encoding, feature selection, and tuning belong inside CV-safe pipelines. Each class should have at least as many examples as the fold count. Grouped patients/subjects and longitudinal measurements need appropriate group/time-aware splits instead of the default stratified folds.
+The loader rejects missing/infinite values, duplicate columns, and nonnumeric predictors. Imputation, encoding, feature selection, and tuning belong inside CV-safe pipelines. Each class must have at least as many examples as the fold count. Paired comparisons require identical fold identifiers and finite scores. Grouped patients/subjects and longitudinal measurements need appropriate group/time-aware splits instead of the default stratified folds.
 
 ## Read the results
 
@@ -66,6 +66,7 @@ The loader rejects missing values and nonnumeric predictors. Imputation, encodin
 | `bayesian_<metric>.csv` | Probabilities, raw mean differences, intervals, and decisions |
 | `bayesian_<metric>_matrix.csv` | All model-pair decisions |
 | `posterior_plots_<metric>/` | Ten posterior-density figures |
+| `run_manifest.json` | Configuration, package versions, input dimensions, and result counts |
 
 Inspect `p_A_better`, `p_equivalent`, and `p_B_better`. At the default threshold, a category needs at least 0.95 posterior probability to trigger a decision; otherwise the result is `no_decision`. Inconclusive evidence does **not** establish equivalence.
 
