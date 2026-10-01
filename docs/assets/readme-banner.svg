@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="260" viewBox="0 0 1280 260" role="img" aria-labelledby="title desc">
+<title id="title">Bayesian Classifier Lab</title><desc id="desc">Evidence beyond the leaderboard. Paired evaluation  /  Practical equivalence  /  Reproducible runs. Decorative project illustration.</desc>
+<defs><linearGradient id="bg"><stop stop-color="#101d31"/><stop offset="1" stop-color="#182740"/></linearGradient></defs>
+<rect width="1280" height="260" rx="18" fill="url(#bg)"/>
+<rect x="40" y="43" width="4" height="155" rx="2" fill="#66b3ff"/>
+<g font-family="DejaVu Sans, Arial, sans-serif"><text x="66" y="65" fill="#66b3ff" font-size="12" letter-spacing="2">RESEARCH &amp; ENGINEERING</text>
+<text x="64" y="121" fill="#f5f8ff" font-size="42" font-weight="700">Bayesian Classifier Lab</text>
+<text x="66" y="162" fill="#c7d4e6" font-size="21">Evidence beyond the leaderboard</text>
+<text x="66" y="216" fill="#8da2be" font-size="14">Paired evaluation  /  Practical equivalence  /  Reproducible runs</text></g>
+<rect x="1070" y="54" width="46" height="146" fill="#66b3ff" opacity="0.10"/><path d="M920 200 C970 196 985 174 1005 131 C1045 36 1083 38 1120 121 C1142 174 1160 196 1210 200" fill="none" stroke="#66b3ff" stroke-width="3"/><path d="M928 199 C981 198 1008 190 1030 145 C1070 69 1110 66 1147 135 C1174 182 1191 194 1230 199" fill="none" stroke="#89e7c8" stroke-width="3"/><path d="M916 202 H1240" stroke="#334962"/></svg>
