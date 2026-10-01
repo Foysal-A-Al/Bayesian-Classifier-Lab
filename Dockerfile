@@ -12,7 +12,7 @@ COPY src ./src
 RUN python -m pip install --upgrade pip \
     && pip install --no-cache-dir .
 
-COPY config.example.yml ./
+COPY config.example.yml config.demo.yml ./
 COPY scripts ./scripts
 COPY data ./data
 
